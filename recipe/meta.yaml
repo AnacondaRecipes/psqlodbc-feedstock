@@ -1,5 +1,5 @@
 {% set name = 'psqlODBC' %}
-{% set version = "13.1.0" %}
+{% set version = "13.01" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: 'https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-{{ version }}.0000.tar.gz'
-  sha256: f33c27745f2bd87344be790465ef984a972fd539dc83bd4f61d4242c607ef1ee
+  sha256: 435de2ea38109b8384ed76d327032b73a53a915379a752a34b0f9c7539055da7
 
 build:
   number: 0
