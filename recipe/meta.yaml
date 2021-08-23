@@ -19,6 +19,7 @@ requirements:
     - python >=3.6
     - make   # [not win]
     - m2-make   # [win]
+    - libtool   # [not win]
   host:
     - unixodbc
     - postgresql

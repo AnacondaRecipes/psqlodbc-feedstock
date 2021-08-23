@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Get an updated config.sub and config.guess
+cp -r ${BUILD_PREFIX}/share/libtool/build-aux/config.* ./config
+
 set -euo pipefail
 
 ./configure --prefix=$PREFIX --with-libpq=$PREFIX/lib --enable-pthreads
