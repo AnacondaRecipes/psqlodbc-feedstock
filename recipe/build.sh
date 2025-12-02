@@ -1,11 +1,10 @@
 #!/bin/bash
+set -exuo pipefail
 
-# Get an updated config.sub and config.guess
-cp -r ${BUILD_PREFIX}/share/libtool/build-aux/config.* ./config
+autoreconf -i
 
-set -euo pipefail
+./configure --prefix=$PREFIX --with-libpq=$PREFIX/lib --enable-pthreads || (cat config.log; exit 1)
 
-./configure --prefix=$PREFIX --with-libpq=$PREFIX/lib --enable-pthreads
 make -j${CPU_COUNT}
 make install
 # generate the driver inst files
