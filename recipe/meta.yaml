@@ -1,13 +1,13 @@
-{% set name = 'psqlODBC' %}
-{% set version = "16.00" %}
+{% set name = "psqlODBC" %}
+{% set version = "17_00_0007" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://ftp.postgresql.org/pub/odbc/versions.old/src/psqlodbc-{{ version }}.0000.tar.gz
-  sha256: afd892f89d2ecee8d3f3b2314f1bd5bf2d02201872c6e3431e5c31096eca4c8b
+  url: https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-{{ version|replace('.','_') }}.tar.gz
+  sha256: cf15619e7fcc31ce3f61634243ca9fbb1e1c7dfdac19d7bda2a66483c029d4b5
 
 build:
   number: 0
@@ -15,14 +15,17 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - python
-    - m2-make   # [win]
-    - make      # [not win]
-    - libtool   # [not win]
+    - make
+    - autoconf
+    - automake
+    - libtool
   host:
     - unixodbc 2.3.11
-    - libpq 17.0
+    - postgresql 17.6
+    - libpq {{ libpq }}
   run:
     - unixodbc
     - libpq
@@ -45,7 +48,7 @@ about:
   description: |
     A library to talk to the PostgreSQL DBMS using ODBC.
   doc_url: https://odbc.postgresql.org/
-  dev_url: https://git.postgresql.org/gitweb/?p=psqlodbc.git
+  dev_url: https://github.com/postgresql-interfaces/psqlodbc/
 
 extra:
   recipe-maintainers:
