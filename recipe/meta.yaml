@@ -25,6 +25,7 @@ requirements:
   host:
     - unixodbc 2.3.11
     - postgresql 17.6
+    - libpq {{ libpq }}
   run:
     - unixodbc
     - libpq
