@@ -2,3 +2,8 @@ anaconda_config_version: 1
 upstream_sources:
   - github:
       identifier: postgresql-interfaces/psqlodbc
+      use_max_tag: true
+      strip_prefix: REL-
+      exclude_regex: (?i).*-mimalloc$
+      from_pattern: ^(\d+)_(\d+)_(\d+)$
+      to_pattern: \1.\2.\3
