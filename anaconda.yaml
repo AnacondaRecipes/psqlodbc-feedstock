@@ -3,8 +3,8 @@ upstream_sources:
   - github:
       identifier: postgresql-interfaces/psqlodbc
       use_max_tag: true
-      include_regex: ^REL-\d+_\d+_\d+$
       strip_prefix: REL-
-      exclude_regex: (?i).*-mimalloc$
       from_pattern: ^(\d+)_(\d+)_(\d+)$
       to_pattern: \1_\2_\3
+      include_regex: ^REL-\d+_\d+_\d+$
+      exclude_regex: (?i).*-mimalloc$
