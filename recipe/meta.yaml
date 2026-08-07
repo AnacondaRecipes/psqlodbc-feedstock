@@ -10,7 +10,7 @@ source:
   sha256: cf15619e7fcc31ce3f61634243ca9fbb1e1c7dfdac19d7bda2a66483c029d4b5
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -25,7 +25,7 @@ requirements:
   host:
     - unixodbc 2.3.11
     - postgresql 17.6
-    - libpq {{ libpq }}
+    - libpq 18.4  # TODO: change back to the libpq jinja placeholder once the global libpq pin in the aggregate's conda_build_config.yaml is bumped to 18.4
   run:
     - unixodbc
     - libpq
