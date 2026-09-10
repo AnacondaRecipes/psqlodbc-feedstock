@@ -1,5 +1,5 @@
 {% set name = "psqlODBC" %}
-{% set version = "17_00_0007" %}
+{% set version = "18.00.0002" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-{{ version|replace('.','_') }}.tar.gz
-  sha256: cf15619e7fcc31ce3f61634243ca9fbb1e1c7dfdac19d7bda2a66483c029d4b5
+  sha256: 54c07372478d1085f4f7f98753d6454f8b231c155ff29c5aca4b34aa95bfc51f
 
 build:
-  number: 1
-  skip: True  # [win]
+  number: 0
+  skip: true  # [win]
 
 requirements:
   build:
@@ -23,7 +23,7 @@ requirements:
     - automake
     - libtool
   host:
-    - unixodbc 2.3.11
+    - unixodbc 2.3.14
     - postgresql 18.4
     - libpq 18.4  # TODO: change back to the libpq jinja placeholder once the global libpq pin in the aggregate's conda_build_config.yaml is bumped to 18.4
   run:
