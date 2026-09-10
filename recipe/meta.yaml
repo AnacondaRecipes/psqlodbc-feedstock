@@ -23,8 +23,8 @@ requirements:
     - automake
     - libtool
   host:
-    - unixodbc 2.3.11
-    - postgresql 17.6
+    - unixodbc 2.3.14
+    - postgresql 18.4
     - libpq {{ libpq }}
   run:
     - unixodbc
