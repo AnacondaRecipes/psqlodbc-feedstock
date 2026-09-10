@@ -25,7 +25,7 @@ requirements:
   host:
     - unixodbc 2.3.14
     - postgresql 18.4
-    - libpq {{ libpq }}
+    - libpq 18.4  # TODO: change back to the libpq jinja placeholder once the global libpq pin in the aggregate's conda_build_config.yaml is bumped to 18.4
   run:
     - unixodbc
     - libpq
